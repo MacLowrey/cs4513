@@ -17,3 +17,7 @@ build/
 *.swp
 *.DS_Store
 *.lock
+
+*.xml
+
+DungeonCrawl/nbproject/genfiles.properties
