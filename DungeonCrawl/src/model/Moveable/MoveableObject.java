@@ -10,21 +10,19 @@
  */
 package model.Moveable;
 
-import java.awt.Graphics;
+import java.awt.geom.Rectangle2D;
 import model.GameObject;
 
 public abstract class MoveableObject implements GameObject {
-    public float x, y;
+    public float x, y, height = 32, width = 32;
     private boolean alive;
+    public static final int MOVEMENT = 32;
     
     public MoveableObject(float x, float y){
         this.x = x;
         this.y = y;
         this.alive = true;
     }
-    
-    @Override
-    public abstract void render(Graphics g);
     
     public void setAlive(boolean alive){
         this.alive = alive;
@@ -36,5 +34,8 @@ public abstract class MoveableObject implements GameObject {
     
     public abstract void update();
     
-    public abstract void findCollision();
+    @Override
+    public Rectangle2D.Double getCollisionBox(){
+        return new Rectangle2D.Double(x, y, width, height);
+    }
 }

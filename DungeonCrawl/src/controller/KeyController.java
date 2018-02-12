@@ -24,7 +24,7 @@ public class KeyController implements KeyListener  {
 
     @Override
     public void keyPressed(KeyEvent ke) {
-        GameObject firstGameObject = DungeonCrawl.gameData.gameObjects.get(0);
+        GameObject firstGameObject = DungeonCrawl.gameData.gamer;
         
         if(firstGameObject instanceof Gamer)
         {
@@ -44,13 +44,17 @@ public class KeyController implements KeyListener  {
                 case KeyEvent.VK_DOWN:
                     gamer.setDown(true);
                     break;
+                case KeyEvent.VK_SPACE:
+                    if(!DungeonCrawl.thread.isAlive())
+                        DungeonCrawl.bannerPanel.setVisible(false);
+                    DungeonCrawl.startGame();
             }
         }
     }
 
     @Override
     public void keyReleased(KeyEvent ke) {
-        Object firstGameObject = DungeonCrawl.gameData.gameObjects.get(0);
+        Object firstGameObject = DungeonCrawl.gameData.gamer;
         
         if(firstGameObject instanceof Gamer)
         {

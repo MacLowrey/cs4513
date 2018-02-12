@@ -1,16 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model.Immoveable.Collectible;
 
+import java.awt.Graphics;
 import model.Immoveable.ImmovableObject;
 
-/**
- *
- * @author russe_000
- */
-public class Collectible extends ImmovableObject {
+public  abstract class Collectible extends ImmovableObject {
     
+    public boolean isDisplayed = true;
+    
+    public Collectible(float x, float y) {
+        super(x, y);
+    }        
 }

@@ -5,8 +5,8 @@
  */
 package model.Moveable;
 
-import java.awt.Graphics;
-import java.awt.geom.Rectangle2D;
+import java.awt.Color;
+import java.awt.Graphics2D;
 
 /**
  *
@@ -18,8 +18,12 @@ public class Block extends MoveableObject {
     }
     
     @Override
-    public void render(Graphics g) {
+    public void render(Graphics2D g) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        //Draw Collision Box
+        //g.setColor(Color.blue);
+        //g.draw(this.getCollisionBox());        
     }
 
     @Override
@@ -29,16 +33,6 @@ public class Block extends MoveableObject {
 
     @Override
     public void update() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void findCollision() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Rectangle2D.Double getCollisionBox() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

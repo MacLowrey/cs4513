@@ -1,8 +1,9 @@
 package view;
 
+import controller.ImageFinder;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.util.ArrayList;
@@ -11,13 +12,19 @@ import javax.swing.JPanel;
 import model.GameData;
 import model.GameObject;
 
-public class GamePanel extends JPanel 
+public final class GamePanel extends JPanel 
 {
     public static int pwidth, pheight;
 
-    private Graphics graphics;
+    private Graphics2D graphics;
     private Image dbImage = null;
 
+    public GamePanel(Image dbImage) {
+        dbImage = ImageFinder.getImage("ImagesFolder", "Floor25pxT.png");
+        this.paintComponent(graphics);
+        System.out.println("I Ran!");
+    }
+    
     public GamePanel(int pwidth, int pheight) 
     {
         GamePanel.pwidth = pwidth;
@@ -26,7 +33,7 @@ public class GamePanel extends JPanel
         setPreferredSize(new Dimension(GamePanel.pwidth, GamePanel.pheight));
         setFocusable(true);
         requestFocus();
-    }
+    }    
 
     public void gameRender() 
     {        
@@ -36,11 +43,14 @@ public class GamePanel extends JPanel
                 System.out.println("dbImage is null");
                 return;
             } else {
-                graphics = dbImage.getGraphics();
+                graphics = (Graphics2D)dbImage.getGraphics();
             }
         }
+        
+        
 
         graphics.clearRect(0, 0, GamePanel.pwidth, GamePanel.pheight);
+        graphics.drawImage(ImageFinder.getImage("ImagesFolder", "map.png"), HEIGHT, WIDTH, this);
 
         synchronized(GameData.gameObjects) 
         {
@@ -62,12 +72,14 @@ public class GamePanel extends JPanel
             
             GameData.gameObjects.removeAll(remove);
         }
+        
+        GameData.gamer.render(graphics);
     }      
 
     public void printScreen() {
-        Graphics g;
+        Graphics2D g;
         try {
-            g = this.getGraphics();
+            g = (Graphics2D)this.getGraphics();
             if ((g != null) && (dbImage != null)) {
                 g.drawImage(dbImage, 0, 0, null);
             }

@@ -6,6 +6,7 @@
 package model;
 
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
 
 /**
@@ -13,7 +14,7 @@ import java.awt.geom.Rectangle2D;
  * @author russe_000
  */
 public interface GameObject {
-    public abstract void render(Graphics g);
+    public abstract void render(Graphics2D g);
     
     public Rectangle2D.Double getCollisionBox();
     

@@ -9,6 +9,10 @@ package model.Immoveable.Tile;
  *
  * @author russe_000
  */
-public class Wall extends Tile {
+public abstract class Wall extends Tile {
+    
+    public Wall(float x, float y) {
+        super(x, y);
+    }
     
 }

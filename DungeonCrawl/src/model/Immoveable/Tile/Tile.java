@@ -5,12 +5,13 @@
  */
 package model.Immoveable.Tile;
 
+import java.awt.Graphics;
 import model.Immoveable.ImmovableObject;
 
-/**
- *
- * @author russe_000
- */
-public class Tile extends ImmovableObject {
+public abstract class Tile extends ImmovableObject {
+
+    public Tile(float x, float y) {
+        super(x, y);
+    }
     
 }
