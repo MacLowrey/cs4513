@@ -231,10 +231,10 @@ public final class LevelThree extends Level {
         
         //Spawner
         ArrayList<GameObject> spawners = new ArrayList<>();
-        spawners.add(new Spawner(28, 17, new Fireball(28, 17, Direction.UP)));
+        spawners.add(new Spawner(28, 17, new Tank(28, 17, Direction.UP)));
         spawners.add(new Spawner(27, 13, new Fireball(27, 13, Direction.DOWN)));
-        spawners.add(new Spawner(26, 17, new Fireball(26, 17, Direction.UP)));
-        spawners.add(new Spawner(25, 13, new Fireball(25, 13, Direction.DOWN)));
+        spawners.add(new Spawner(26, 17, new Ball(26, 17, Direction.DOWN)));
+        spawners.add(new Spawner(25, 13, new Frog(25, 13)));
         super.immovableObjects.addAll(spawners);
         
         //ToggleWalls
